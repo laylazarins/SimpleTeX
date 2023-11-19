@@ -7,7 +7,9 @@ export default function Landing() {
             Note Sharing
         </title>
         <body>
-            <button type="button" onclick="document.location='select.html'">Login</button>
+            <button className='login'>
+                Login
+                </button>
         </body>
     </div>
  )
