@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { socket } from './socket';
-import { ConnectionManager } from './components/noteScreen';
-import { ConnectionState } from './components/noteScreen';
-import {Link } from "react-router-dom";
-
 
 function Note() {
 
