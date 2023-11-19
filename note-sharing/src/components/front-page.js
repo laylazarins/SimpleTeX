@@ -10,7 +10,7 @@ export default function FrontPage() {
         </h1>
         <body>
         <Link to="/signin"><button className='login-button'>
-                Get Started
+                Get Started!
                 </button></Link>
         </body>
         <div className='media-list'>
