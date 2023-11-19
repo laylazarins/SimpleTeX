@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import github from "./images/github_icon.png";
 
 export default function FrontPage() {
@@ -9,8 +9,8 @@ export default function FrontPage() {
             Note Sharing
         </h1>
         <body>
-        <Link to="/note"><button className='login-button'>
-                Get Started
+        <Link to="/select"><button className='login-button'>
+                Get Started!
                 </button></Link>
         </body>
         <div className='media-list'>
