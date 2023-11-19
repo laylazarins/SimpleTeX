@@ -15,10 +15,9 @@ function Select() {
   const handleCreate = async (title) => {
     try {
       // Reference to 'texts' collection in Firestore
-      const textsCollectionRef = collection(firestore, 'texts');
+      const textsCollectionRef = collection(firestore, title);
       // Add a new document to the collection
       await addDoc(textsCollectionRef, { 
-        title: title,
         content: ""
        });
       console.log("Document successfully written!");
