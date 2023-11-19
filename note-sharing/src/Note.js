@@ -7,7 +7,7 @@ import {MarkdownBlock, MarkdownSpan, MarkdownElement} from "https://md-block.ver
 
 function Note() {
     const [count, setCount] = React.useState("hi");
-    const [title, setTitle] = React.useState("title");
+    const [title, setTitle] = React.useState("note");
 
     const processCurrentText = event => {
          setCount(event.target.value);
@@ -17,6 +17,7 @@ function Note() {
 
     return (
       <div className="Note">
+        <h1>{title}</h1>
         <textarea class="input_area"
         placeholder="start typing here..."
         id = "message"

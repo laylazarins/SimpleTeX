@@ -9,8 +9,8 @@ export default function FrontPage() {
             Note Sharing
         </h1>
         <body>
-        <Link to="/signin"><button className='login-button'>
-                Get Started
+        <Link to="/select"><button className='login-button'>
+                Get Started!
                 </button></Link>
         </body>
         <div className='media-list'>
