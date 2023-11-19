@@ -9,7 +9,7 @@ export default function FrontPage() {
             Note Sharing
         </h1>
         <body>
-        <Link to="/select"><button className='login-button'>
+        <Link to="/note"><button className='login-button'>
                 Get Started
                 </button></Link>
         </body>
