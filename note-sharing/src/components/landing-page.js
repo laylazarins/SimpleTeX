@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Landing() {
  return (
-    <div>
+    <div className='front-page'>
         <title>
             Note Sharing
         </title>
