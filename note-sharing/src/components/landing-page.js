@@ -4,14 +4,14 @@ import {Link } from "react-router-dom";
 export default function Landing() {
  return (
     <div className='front-page'>
-        <title>
+        <h1 className='front-page-title'>
             Note Sharing
-        </title>
+        </h1>
         <body>
         <Link to="/select"><button className='login'>
                 Login
                 </button></Link>
         </body>
     </div>
- )
+    )
 }
