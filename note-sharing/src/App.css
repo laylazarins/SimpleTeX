@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 .login-button {
   margin: 0;
@@ -15,5 +15,5 @@
 
 .front-page-title{
   text-align:center;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
