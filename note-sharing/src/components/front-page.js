@@ -2,7 +2,7 @@ import React from 'react'
 import {Link } from "react-router-dom";
 import github from "./github_icon.png";
 
-export default function Landing() {
+export default function FrontPage() {
  return (
     <div className='front-page'>
         <h1 className='front-page-title'>
