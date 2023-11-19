@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 //import Landing from './components/landing-page.js';
 
 function Select() {

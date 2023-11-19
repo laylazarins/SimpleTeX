@@ -8,10 +8,10 @@ export default function Landing() {
             Note Sharing
         </h1>
         <body>
-        <Link to="/select"><button className='login-button'>
+        <Link to="/note"><button className='login-button'>
                 Login
                 </button></Link>
         </body>
     </div>
-    )
+    );
 }
