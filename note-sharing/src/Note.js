@@ -7,14 +7,13 @@ import {MarkdownBlock, MarkdownSpan, MarkdownElement} from "https://md-block.ver
 
 function Note() {
     const [count, setCount] = React.useState("hi");
+    const [title, setTitle] = React.useState("title");
 
     const processCurrentText = event => {
          setCount(event.target.value);
-      };
-    const renderText = () => {
-        const element = document.getElementById('textbox');
+         const element = document.getElementById('textbox');
         element.mdContent = count;
-    }
+      };
 
     return (
       <div className="Note">
@@ -24,18 +23,9 @@ function Note() {
         name = "message"
         onInput = {processCurrentText}>
         </textarea> 
-        <button type="button" onClick={renderText}>
-        Render
-      </button>
       <md-block id="textbox">
         "start typing!"
       </md-block>
-        {/* <input
-      onFocus={(e) => {
-        console.log('Focused on input');
-      }}
-      placeholder="onFocus is triggered when you click this input."
-    /> */}
       </div>
     );
   }
