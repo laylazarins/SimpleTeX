@@ -7,7 +7,7 @@ export default function SignIn() {
 
       <section id="whenSignedOut">
   
-        <button id="signInBtn" class="btn btn-primary">Sign in with Google</button>
+        <button id="signInBtn" class="btn btn-primary" onclick = "googleLogin()" >Sign in with Google!</button>
   
       </section>
   
