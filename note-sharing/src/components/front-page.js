@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link } from "react-router-dom";
-import github from "./github_icon.png";
+import github from "./images/github_icon.png";
 
 export default function FrontPage() {
  return (
@@ -16,7 +16,7 @@ export default function FrontPage() {
         <div className='media-list'>
             <ul>
                 <li className="sociallist">
-                    <a href="https://github.com/JerryQii/hackcamp-pj/">
+                    <a href="https://github.com/JerryQii/hackcamp-pj/" target="_blank">
                     GitHub Repository
                     <img className="sociallogo" src={github} alt="GitHub">
                     </img>
