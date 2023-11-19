@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import Modal from './components/select-modal'; // Import the Modal component
+import Modal from './components/select-modal';
 import './Select.css';
+//import './App.css';
+//import Landing from './components/landing-page.js';
 
 function Select() {
   const [showModal, setShowModal, showNotesList] = useState(false);

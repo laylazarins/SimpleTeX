@@ -1,13 +1,13 @@
 import React from 'react';
 //import ReactDOM from 'react-dom/client';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import './index.css';
 import App from './App';
 import Select from './Select'
+import Note from './Note'
 import reportWebVitals from './reportWebVitals';
-
 
 const rootElement = document.getElementById("root");
     ReactDOM.render(
@@ -15,18 +15,11 @@ const rootElement = document.getElementById("root");
        <Routes>
         <Route exact path="/" element={<App />} />
         <Route path="/select" element={<Select />} />
+        <Route path="/note" element={<Note />}></Route>
       </Routes>
       </BrowserRouter>,
       rootElement
     );
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-  
-// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
