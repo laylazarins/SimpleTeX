@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import github from "./images/github_icon.png";
 
 export default function FrontPage() {
