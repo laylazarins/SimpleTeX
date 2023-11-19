@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link } from "react-router-dom";
 
 export default function Landing() {
  return (
@@ -7,9 +8,9 @@ export default function Landing() {
             Note Sharing
         </title>
         <body>
-            <button className='login'>
+        <Link to="/select"><button className='login'>
                 Login
-                </button>
+                </button></Link>
         </body>
     </div>
  )
