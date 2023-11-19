@@ -13,8 +13,8 @@ const rootElement = document.getElementById("root");
     ReactDOM.render(
       <BrowserRouter>
        <Routes>
-        <Route exact path="/" component={App} />
-        <Route path="/select" component={Select} />
+        <Route exact path="/" element={<App />} />
+        <Route path="/select" element={<Select />} />
       </Routes>
       </BrowserRouter>,
       rootElement
