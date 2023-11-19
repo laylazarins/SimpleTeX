@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import Select from './Select'
 import Note from './Note'
+import Signin from './Signin'
 import reportWebVitals from './reportWebVitals';
 
 const rootElement = document.getElementById("root");
@@ -16,6 +17,7 @@ const rootElement = document.getElementById("root");
         <Route exact path="/" element={<App />} />
         <Route path="/select" element={<Select />} />
         <Route path="/note" element={<Note />}></Route>
+        <Route path="/signin" element={<Signin />}></Route>
       </Routes>
       </BrowserRouter>,
       rootElement
