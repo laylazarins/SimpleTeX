@@ -7,15 +7,14 @@ import { collection, addDoc, onSnapshot, doc } from 'firebase/firestore';
 //import './App.css';
 //import Landing from './components/landing-page.js';
 import Select from 'react-select';
-
+import {useNavigate} from 'react-router-dom';
 
 function SelectFile() {
     
     const [options, setOptions] = useState([
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
       ]);
+      const navigate = useNavigate()
+
 
   const [showModal, setShowModal] = useState(false);
   const [showNotesList, setNotesList] = useState(false);
@@ -36,20 +35,9 @@ function SelectFile() {
         content: ""
        });
       console.log("Document successfully written!");
-    } catch (error) {
-      console.error("Error writing document: ", error);
-    }
-  };
-
-  const handleLoad = async (title) => {
-    try {
-      // Reference to 'texts' collection in Firestore
-      const textsCollectionRef = collection(firestore, title);
-      // Add a new document to the collection
-      await addDoc(textsCollectionRef, { 
-        content: ""
-       });
-      console.log("Document successfully written!");
+      //<Link to='/note'></Link>
+      //this.props.history.push("./note");
+        navigate("/note");
     } catch (error) {
       console.error("Error writing document: ", error);
     }
@@ -72,17 +60,20 @@ function SelectFile() {
 
     },[options]);
 
+    const load = () => {
+        navigate("/note");
+    }
+
   return (
     <div className="SelectScreen">
       <div className="text-container">
-        <p>Load Note</p>
+        <p>Select Course</p>
       </div>
       <div className="button-container">
-        <button onClick={handleOpenNotes}>Load from File</button>
-        <button onClick={handleOpenModal}>New File</button>
+        <button onClick={load}>Load Course Notes</button>
+        <button onClick={handleOpenModal}>New Course</button>
       </div>
       <Modal show={showModal} onClose={handleCloseModal} submit={handleCreate}>
-        <p>Please enter a title:</p>
       </Modal>
       {/* <Modal show={showNotesList} onClose={handleCloseNotes} submit={handleLoad}>
         <p>Please Select</p>
