@@ -23,11 +23,9 @@ function Note(document) {
   const handleEditorChange = (value) => {
     setContent(value);
   };
-  const name = "title";
+  const title = "Placeholder ";
   const navigate = useNavigate();
 
-  const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
-  var title = getDoc(col).data().title;
 
   
 
