@@ -8,8 +8,7 @@ import 'react-quill/dist/quill.snow.css';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import {useNavigate} from 'react-router-dom';
-import { Link } from "react-router-dom";
-import { collection, onSnapshot, doc , getDoc} from 'firebase/firestore'; 
+import { Link } from "react-router-dom"; 
 
 window.katex = katex;
 
