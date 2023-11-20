@@ -61,6 +61,12 @@ function SelectFile() {
         })))
       })
 
+    //   const l = async () => {
+    // const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
+    //     await setDoc(col, {title: title});
+    //   }
+    //   l();
+
     },[options]);
 
     const load = async () => {

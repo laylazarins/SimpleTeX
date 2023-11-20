@@ -1,7 +1,7 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import firestore from './firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore'; 
+import { collection, addDoc, onSnapshot, doc , setDoc, getDoc} from 'firebase/firestore'; 
 import './Note.css';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -23,9 +23,38 @@ function Note(document) {
   const handleEditorChange = (value) => {
     setContent(value);
   };
-  const title = "title";
+  //onst title = "title";
   const navigate = useNavigate();
 
+  const [firstTime, setFirstTime] = useState(true);
+  const [title, setTitle] = useState("");
+  const [tempTitle, setTemp] = useState([]);
+
+  useEffect(() => {
+    if (firstTime) {
+        const fetchData = async () => {
+        const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
+        const docSnap = await getDoc(col);
+        setContent(docSnap.data().title);
+        setTitle(docSnap.data().title);
+        
+        onSnapshot(collection(firestore, "docs"), (snapshot) => {
+            setTemp(snapshot.docs.map(doc => ({
+                title: doc.data().title,
+                value: doc.data().value
+            }
+            )))
+            // if (tempTitle.title == title) {
+            //     setContent(tempTitle.value);
+            // }
+          })
+            setFirstTime(false);
+        }       
+        fetchData(); 
+    } else {
+
+    }
+  }, [content]);
 
 
   var toolbarOptions = [
