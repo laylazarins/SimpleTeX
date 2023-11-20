@@ -10,7 +10,6 @@ import Select from 'react-select';
 import {useNavigate} from 'react-router-dom';
 
 function SelectFile() {
-    
     const [options, setOptions] = useState([
       ]);
       const navigate = useNavigate()
