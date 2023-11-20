@@ -1,5 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
+import firestore from './firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore'; 
 import './Note.css';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -11,12 +13,12 @@ window.katex = katex;
 
 
 
-function Note() {
+function Note(document) {
   const [content, setContent] = useState('');
-
   const handleEditorChange = (value) => {
     setContent(value);
   };
+  const title = "title";
 
 
   var toolbarOptions = [
@@ -33,11 +35,22 @@ function Note() {
   [{ 'align': [] }],
   ['link','image','formula'],
   ['clean']
-               
   ];
 
+  function save() {
+    // TODO
+  }
+
   return (
+    
     <div className="note">
+      <h1 className="title">
+        {title}
+      <button className="save-button" 
+        onClick={save()}>
+        Save Notes 
+      </button>
+      </h1>
       <ReactQuill className="editor"
       theme = 'snow'
         value= {content}
@@ -49,6 +62,7 @@ function Note() {
         }}
       />
     </div>
+    
   );
 }
 
