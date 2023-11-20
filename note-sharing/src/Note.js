@@ -7,7 +7,12 @@ import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
+import {useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 window.katex = katex;
+
+
 
 
 
@@ -19,6 +24,8 @@ function Note(document) {
     setContent(value);
   };
   const title = "title";
+  const navigate = useNavigate();
+
 
 
   var toolbarOptions = [
@@ -50,6 +57,11 @@ function Note(document) {
         onClick={save()}>
         Save Notes 
       </button>
+      <Link to="/select">
+      <button className="exit-button">
+        select course
+        </button>
+        </Link>
       </h1>
       <ReactQuill className="editor"
       theme = 'snow'
