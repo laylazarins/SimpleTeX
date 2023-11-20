@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
 import firestore from './firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore'; 
 import './Note.css';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -9,6 +8,7 @@ import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { collection, onSnapshot, doc , getDoc} from 'firebase/firestore'; 
 
 window.katex = katex;
 
@@ -23,9 +23,13 @@ function Note(document) {
   const handleEditorChange = (value) => {
     setContent(value);
   };
-  const title = "title";
+  const name = "title";
   const navigate = useNavigate();
 
+  const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
+  var title = getDoc(col).data().title;
+
+  
 
 
   var toolbarOptions = [
