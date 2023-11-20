@@ -3,7 +3,7 @@ import Modal from './components/select-modal';
 import Modalt from './components/select-modalagain';
 import './Select.css';
 import firestore from './firebaseConfig';
-import { collection, addDoc, onSnapshot, doc } from 'firebase/firestore'; 
+import { collection, addDoc, onSnapshot, doc , setDoc} from 'firebase/firestore'; 
 //import './App.css';
 //import Landing from './components/landing-page.js';
 import Select from 'react-select';
@@ -23,6 +23,8 @@ function SelectFile() {
 
   const handleOpenNotes = () => setNotesList(true);
   const handleCloseNotes = () => setNotesList(false);
+
+  const [title, setTitle] = useState("default");
 
   const handleCreate = async (title) => {
     try {
@@ -59,9 +61,15 @@ function SelectFile() {
 
     },[options]);
 
-    const load = () => {
+    const load = async () => {
+        const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
+        await setDoc(col, {title: title});
         navigate("/note");
     }
+
+    // const selectChange = event => {
+    //     setTitle(event.target.branch.value);
+    // }
 
   return (
     <div className="SelectScreen">
@@ -78,6 +86,7 @@ function SelectFile() {
         <p>Please Select</p>
       </Modal> */}
       <Select
+        onChange={(choice) => setTitle(choice)}
         options={options}
       />
     </div>
