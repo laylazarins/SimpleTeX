@@ -1,6 +1,11 @@
 
+body{
+    background-color:antiquewhite;
+}
+
 .editor{
     position:absolute;
+    z-index: 10000;
     left:50%;
     transform: translate(-50%, 5%);
     height:85%; 
@@ -11,6 +16,6 @@
     background-color:whitesmoke;
 }
 
-body{
-    background-color:antiquewhite;
+.editor .ql-container{
+    background-color:white;
 }
