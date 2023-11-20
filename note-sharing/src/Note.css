@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 body{
     background-color:antiquewhite;
@@ -7,7 +8,7 @@ body{
     position:absolute;
     z-index: 10000;
     left:50%;
-    transform: translate(-50%, 5%);
+    transform: translate(-50%, 0%);
     height:85%; 
     width:90%;
     background-color:white;
@@ -18,4 +19,51 @@ body{
 
 .editor .ql-container{
     background-color:white;
+}
+
+.title{
+    position:relative;
+    text-align:center;
+    font-family:'Montserrat', sans-serif;
+    top:10%;
+}
+.save-button{
+    position:absolute;
+    left:80%;
+    top:5%;
+    width:10%;
+    height:30px;
+    background-color:whitesmoke;
+    border-radius:4px;
+    border: 1px lightgray;
+    cursor:pointer;
+    text-transform: lowercase;
+    font-family:'Montserrat', sans-serif;
+    font-stretch:expanded;
+    font-size: 18px;
+}
+.save-button:hover{
+  opacity:1;
+  background-color: rgb(215, 215, 215);
+  box-shadow: 0px 0px 3px #888888;
+}
+.exit-button{
+    position:absolute;
+    left:10%;
+    top:5%;
+    width:12%;
+    height:30px;
+    background-color:whitesmoke;
+    border-radius:4px;
+    border: 1px lightgray;
+    cursor:pointer;
+    text-transform: lowercase;
+    font-family:'Montserrat', sans-serif;
+    font-stretch:expanded;
+    font-size: 18px;
+}
+.exit-button:hover{
+  opacity:1;
+  background-color: rgb(215, 215, 215);
+  box-shadow: 0px 0px 3px #888888;
 }
