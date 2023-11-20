@@ -1,34 +1,66 @@
 import React, { useState } from 'react';
-import m from './components/select-modal';
+import Modal from './components/select-modal';
+import Modalt from './components/select-modalagain';
 import './Select.css';
+import firestore from './firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore'; 
 //import './App.css';
 //import Landing from './components/landing-page.js';
-import './firebaseConfig';
-import {database} from './firebaseConfig';
-import { onValue, addDoc, collection, getDocs, doc} from "firebase/firestore";
-import { Link } from "react-router-dom";
 
 function Select() {
-  const [title, setTitle] = useState("default");
+  const [showModal, setShowModal] = useState(false);
+  const [showNotesList, setNotesList] = useState(false);
 
-  const changeTitle = event => {
-    setTitle(event.target.value);
-  }
+  const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
-  const CreateNote = async () => {
-    const UsersCollectionRef = collection(database, title)
-    await addDoc(UsersCollectionRef, {Content: ""})
-    //const res = await database.collection('title').doc(title).set("");
-      
-  }
+  const handleOpenNotes = () => setNotesList(true);
+  const handleCloseNotes = () => setNotesList(false);
+
+  const handleCreate = async (title) => {
+    try {
+      // Reference to 'texts' collection in Firestore
+      const textsCollectionRef = collection(firestore, "docs");
+      // Add a new document to the collection
+      await addDoc(textsCollectionRef, { 
+        title: title,
+        content: ""
+       });
+      console.log("Document successfully written!");
+    } catch (error) {
+      console.error("Error writing document: ", error);
+    }
+  };
+
+  const handleLoad = async (title) => {
+    try {
+      // Reference to 'texts' collection in Firestore
+      const textsCollectionRef = collection(firestore, title);
+      // Add a new document to the collection
+      await addDoc(textsCollectionRef, { 
+        content: ""
+       });
+      console.log("Document successfully written!");
+    } catch (error) {
+      console.error("Error writing document: ", error);
+    }
+  };
 
   return (
     <div className="SelectScreen">
       <div className="text-container">
         <p>Load Note</p>
-        </div>
-        <textarea type="text"></textarea>
-        <Link to='/note'><button onClick={CreateNote}>Create</button></Link>
+      </div>
+      <div className="button-container">
+        <button onClick={handleOpenNotes}>Load from File</button>
+        <button onClick={handleOpenModal}>New File</button>
+      </div>
+      <Modal show={showModal} onClose={handleCloseModal} submit={handleCreate}>
+        <p>Please enter a title:</p>
+      </Modal>
+      <Modal show={showNotesList} onClose={handleCloseNotes} submit={handleLoad}>
+        <p>Please Select</p>
+      </Modal>
     </div>
   );
 }
