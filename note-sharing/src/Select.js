@@ -39,6 +39,8 @@ function SelectFile() {
       console.log("Document successfully written!");
       //<Link to='/note'></Link>
       //this.props.history.push("./note");
+        const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
+        await setDoc(col, {title: title});
         navigate("/note");
     } catch (error) {
       console.error("Error writing document: ", error);
@@ -63,8 +65,8 @@ function SelectFile() {
     },[options]);
 
     const load = async () => {
-        const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
-        await setDoc(col, {title: title});
+        // const col = doc(firestore, "current", "liwZV0ADLQ5kJc05IpCd");
+        // await setDoc(col, {title: title});
         navigate("/note");
     }
 
