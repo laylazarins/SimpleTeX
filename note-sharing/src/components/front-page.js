@@ -6,7 +6,7 @@ export default function FrontPage() {
  return (
     <div className='front-page'>
         <h1 className='front-page-title'>
-            Note Sharing
+            SimpleTeX
         </h1>
         <body>
         <Link to="/select"><button className='login-button'>
