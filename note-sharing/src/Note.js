@@ -1,34 +1,57 @@
 import React from 'react';
 import {useState} from 'react';
+import './Note.css';
+import ReactQuill, { Quill } from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import 'katex/dist/katex.min.css';
+import katex from 'katex';
+window.katex = katex;
 
-import {MarkdownBlock, MarkdownSpan, MarkdownElement} from "https://md-block.verou.me/md-block.js";
+
 
 
 
 function Note() {
-    const [count, setCount] = React.useState("hi");
-    const [title, setTitle] = React.useState("title");
+  const [content, setContent] = useState('');
 
-    const processCurrentText = event => {
-         setCount(event.target.value);
-         const element = document.getElementById('textbox');
-        element.mdContent = count;
-      };
+  const handleEditorChange = (value) => {
+    setContent(value);
+  };
 
-    return (
-      <div className="Note">
-        <textarea class="input_area"
-        placeholder="start typing here..."
-        id = "message"
-        name = "message"
-        onInput = {processCurrentText}>
-        </textarea> 
-      <md-block id="textbox">
-        "start typing!"
-      </md-block>
-      </div>
-    );
-  }
+
+  var toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
+
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+  ['link','image','formula'],
+  ['clean']
+               
+  ];
+
+  return (
+    <div className="note">
+      <ReactQuill className="editor"
+      theme = 'snow'
+        value= {content}
+        onChange={handleEditorChange}
+        placeholder= "Start typing here..."
+        modules={{
+          toolbar: toolbarOptions,
+          formula: true
+        }}
+      />
+    </div>
+  );
+}
+
 
   
   export default Note;
