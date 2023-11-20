@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './select-modal.css'; // Import your Modal CSS
 
-var Modal = ({ show, onClose, submit }) => {
+export const Modal2 = ({ show, onClose, submit }) => {
   const [title, setTitle] = useState(''); // State to store the input value
 
   const handleInputChange = (e) => {
@@ -18,20 +18,30 @@ var Modal = ({ show, onClose, submit }) => {
     return null;
   }
 
+  // const hello = () => {
+  //   firebase.collection("cities").get().then(function(querySnapshot) {
+  //     querySnapshot.forEach(function(doc) {
+  //         // doc.data() is never undefined for query doc snapshots
+  //         console.log(doc.id, " => ", doc.data());
+  //     });
+  // });
+  // }
+
   return (
     <div className="modal-backdrop">
       <div className="modal-content">
-        <input
-          type="text"
-          placeholder="title"
-          value={title}
-          onChange={handleInputChange}
-        />
+      <select>
+
+      <option value="fruit">Fruit</option>
+
+      <option value="vegetable">Vegetable</option>
+
+      <option value="meat">Meat</option>
+
+      </select>
         <button onClick={handleSubmit}>Create</button>
         <button onClick={onClose}>Cancel</button>
       </div>
     </div>
   );
 };
-
-export default Modal;

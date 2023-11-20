@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import './index.css';
 import App from './App';
-import Select from './Select'
+import SelectFile from './Select'
 import Note from './Note'
 import Signin from './Signin'
 import reportWebVitals from './reportWebVitals';
@@ -15,7 +15,7 @@ const rootElement = document.getElementById("root");
       <BrowserRouter>
        <Routes>
         <Route exact path="/" element={<App />} />
-        <Route path="/select" element={<Select />} />
+        <Route path="/select" element={<SelectFile />} />
         <Route path="/note" element={<Note />}></Route>
         <Route path="/signin" element={<Signin />}></Route>
       </Routes>
